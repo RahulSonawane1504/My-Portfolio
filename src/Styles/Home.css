@@ -1,0 +1,125 @@
+/* Modern Color Palette */
+:root {
+  --primary-color: #6c63ff; /* Purple */
+  --secondary-color: #ff6584; /* Pink */
+  --accent-color: #00c9a7; /* Teal */
+  --background-color: #1a1a2e; /* Dark Blue */
+  --text-color: #ffffff; /* White */
+  --hover-color: #ffc75f; /* Gold */
+}
+
+/* Home Page Styles */
+.home-container {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+  overflow: hidden;
+}
+
+.home-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.home-title {
+  font-size: 4rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: var(--primary-color);
+  animation: fadeInDown 1.5s ease-in-out;
+}
+
+.home-subtitle {
+  font-size: 1.5rem;
+  margin-bottom: 40px;
+  color: var(--text-color);
+  animation: fadeInUp 1.5s ease-in-out;
+}
+
+.home-button {
+  background-color: var(--primary-color);
+  color: var(--text-color);
+  padding: 15px 30px;
+  border: none;
+  border-radius: 50px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  animation: fadeIn 2s ease-in-out;
+}
+
+.home-button:hover {
+  background-color: var(--hover-color);
+  transform: scale(1.1);
+  box-shadow: 0 0 20px var(--hover-color);
+}
+
+/* Creative Hover Effects */
+.home-button::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 300%;
+  height: 300%;
+  background-color: var(--secondary-color);
+  border-radius: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  transition: transform 0.5s ease;
+  z-index: -1;
+}
+
+.home-button:hover::after {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* @keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+} */
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Background Animation */
+.home-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
+  opacity: 0.1;
+  z-index: -1;
+  animation: rotateBackground 20s linear infinite;
+}
